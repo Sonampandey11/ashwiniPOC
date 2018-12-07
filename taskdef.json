@@ -1,0 +1,24 @@
+{
+	"family": "adc-customers",
+	"containerDefinitions": [{
+		"image": "%REPOSITORY_URI%:v_%BUILD_NUMBER%",
+		"name": "adc-customers",
+		"cpu": 10,
+		"memory": 256,
+		"essential": true,
+		"portMappings": [{
+			"containerPort": 8085,
+			"hostPort": 8085
+		}],
+		
+		"logConfiguration": {
+			"logDriver": "awslogs",
+			"options": {
+				"awslogs-group": "devops_vijay_microservice-container-logs",
+				"awslogs-region": "us-west-2",
+				"awslogs-stream-prefix": "microservice-container-stream"
+			}
+		}
+
+	}]
+}
